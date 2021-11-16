@@ -82,4 +82,6 @@ if __name__ == '__main__':
     _building = parse_json(building_path)
     _calls = parse_csv(calls_path)
     _max = max([abs(x.dest - x.src) for x in _calls])
+    for _call in _calls:
+        _call = allocate(_building, _call, _max)
     csv_output_writer(output_path, _calls)
