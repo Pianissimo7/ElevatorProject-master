@@ -8,7 +8,7 @@ class CallForElevator:
         self.type = (int(dest) - int(src)) / abs(int(dest) - int(src))
 
     def output(self):
-        return "Elevator call", self.time, str(self.src), str(self.dest), str(self.state), str(self.elev)
+        return "Elevator call", self.time, str(self.src), str(self.dest), 3, str(self.elev)
 
     def __str__(self):
         return ", ".join([
