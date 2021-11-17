@@ -19,4 +19,7 @@ The algorithm receives all the inputs in advance before running the program, whi
 There are 4 classes defined in this implementation. Their properties and methods are detailed below.
 
 ### 1 - Building
-This class define a '''Building''' with three attributes '''min_floor''' of the given building
+This class define a ```Building``` with three attributes ```min_floor``` and ```max_floor``` of the given building and the number of ```elevators```
+
+### 2 - Elevator
+This class represent an ```Elevator``` with different characterics like ```speed```, ```min_floor``` and ```max_floor``` of each elevator and others specifics time ```close_time```, ```open_time```, ```start_time``` and ```stop_time```
