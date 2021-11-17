@@ -13,3 +13,10 @@ The algorithm receives all the inputs in advance before running the program, whi
 - A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *maching learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path
 
 - A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed as we wish. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given moment, as well as the *Online* algorithm computes a new path for each new call.
+
+## Design
+
+There are 4 classes defined in this implementation. Their properties and methods are detailed below.
+
+### 1 - Building
+This class define a '''Building''' with three attributes '''min_floor''' of the given building
