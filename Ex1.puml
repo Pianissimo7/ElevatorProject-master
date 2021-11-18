@@ -1,0 +1,65 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface csv
+interface json
+interface sys
+class Elevator
+class Building
+class CallForElevator
+class Main
+
+Elevator <|-- Main
+Building <|-- Main
+CallForElevator <|-- Main
+Main <|.. json
+Main <|.. csv
+Main <|.. sys
+
+
+class Elevator {
+        ID: String
+        speed: double
+        min_floor: int
+        max_floor: int
+        close_time: double
+        open_time: double
+        start_time: double
+        stop_time: double
+        call_amount: int
+
+       +__str__(self):String
+}
+
+class Building {
+       min_floor: int
+       max_floor: int
+       elevators[]: CallForElevator
+
+       +__str__(self):String
+}
+
+class CallForElevator {
+        time: double
+        src: int
+        dest: int
+        state: int
+        elev: int
+        type: int
+
+       +output(self):
+       +__str__(self):String
+}
+
+class Main {
+
++def parse_json(json_path):
++def parse_csv(csv_path):
++def csv_output_writer(pathcsv, calls):
++def allocate(building, call, call_max_length):
++def min_calls(building):
++if __name__ == '__main__':
+
+}
+
+
+@enduml

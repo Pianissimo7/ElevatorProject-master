@@ -76,15 +76,17 @@ def min_calls(building):
 
 # tester run command:
 # java -jar Ex1_checker_V1.2_obf.jar 1111,2222,3333 Ex1_Buildings/B5.json output.csv logs/Calls_d_B5_log.csv
+
 if __name__ == '__main__':
     cmd_args = sys.argv[1:]
     building_path = cmd_args[0]
     calls_path = cmd_args[1]
     output_path = cmd_args[2]
 
-    # building_path = "files/Ex1_Buildings/B5.json"
-    # output_path = "files/output.csv"
-    # calls_path = "files/Ex1_Calls/Calls_d.csv"
+
+    # building_path = "Ex1_Buildings/B5.json"
+    # output_path = "output.csv"
+    # calls_path = "Ex1_Calls/Calls_c.csv"
 
     _building = parse_json(building_path)
     _calls = parse_csv(calls_path)
