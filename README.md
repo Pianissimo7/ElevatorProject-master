@@ -4,7 +4,7 @@
 
 Create an algorithm for an OOP exercise based on the concept of "Smart Elevator". We need to implement an elevator control system using an ***Offline Algorithm***.
 In this algorithm, we get all the input before running the program what allow us to
-The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changements on the running time.
+The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changes on the run time.
 
 ## Sources
 
@@ -12,7 +12,7 @@ The algorithm receives all the inputs in advance before running the program, whi
 
 - A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *machine learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path.
 
-- A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed as we wish. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given moment, as well as the *Online* algorithm computes a new path for each new call.
+- A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed arbitrairly. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given time, as well as the *Online* algorithm computes a new path for each new call.
 
 ## Design
 
@@ -46,8 +46,8 @@ This class contains the main functions to make the algorithm works efficiently. 
     py .\main.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
     
     
- You can choose every building by replacing ```B1.json``` (B2, B3, B4 or B5).
- You can select every stage call by replacing ```Call_a.csv``` (b, c or d).
+ You can choose every building by replacing ```B1.json``` with (```B2.json```, ```B3.json```, ```B4.json``` or ```B5.json```).
+ You can select every stage call by replacing ```Call_a.csv``` (```Call_b.csv```, ```Call_c.csv``` or ```Call_d.csv```).
     
 3 - Then, run the following command for the ```.jar``` file:
 
@@ -82,10 +82,4 @@ This class contains the main functions to make the algorithm works efficiently. 
  ## Algorithm
  
  The main idea of the algorithm is the ```allocate``` function in ```main.py```. The function get as arguments a building of type Building, call of type CallForElevator and call_max_length of type int. Fist we sorted the elevators with a ```lambda``` function that calculates the time by different parameters ```x.CloseTime + x.OpenTime + x.StartTime + x.StopTime - abs(call.dest - call.src) / x.Speed)```.Then, we got the distance of each call by subtracting the destination call of the source call.
- In order to balance the algorithm, if one elevator has too many calls allocated to it, some calls should be given to elevators with fewer calls, we calculate an average based on the amount of calls of the i'th elevator. Moreover, we used a helper function called ```min_calls``` that receives a building and returns an int representing the elevator with the lowest amount of calls assigned to it. At the end, we return the call after updating its elev value to be one of the elevators in building.
-
-
-
-
-
-
+ In order to balance the algorithm, if one elevator has too many calls allocated to it, some calls should be given to elevators with fewer calls, we calculate an average based on the amount of calls that each elevator has. Moreover, we used a helper function called ```min_calls``` that receives a building and returns an int representing the elevator with the lowest amount of calls assigned to it. At the end, we return the call after updating its elev value to be one of the elevators in building.
