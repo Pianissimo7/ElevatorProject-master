@@ -34,7 +34,29 @@ This class contains the main functions to make the algorithm works efficiently. 
 
 ## UML Diagram
 
-![image](https://user-images.githubusercontent.com/92322613/142417101-7c6fc71f-90fb-4c00-a88c-c89aa6be8fb1.png 50x50)
+<img src="https://user-images.githubusercontent.com/92322613/142417101-7c6fc71f-90fb-4c00-a88c-c89aa6be8fb1.png" width="500">
+
+## How to run
+
+1 - In order to run the simulator, first enter into the ```main.c```.
+
+2 - Then, from there open cmd and the next commmand:
+
+    py .\main.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
+    
+    
+    You can choose every building by remplacing ```B1.json``` (B2, B3, B4 or B5).
+    You can select every stage call by remplacing ```Call_a.csv``` (b, c or d).
+    
+3 - Then, run the following command for the ```.jar``` file:
+
+    ```java -jar Ex1_checker_V1.2_obf.jar <First_ID,Second_ID> Ex1_Buildings/B2.json output.csv Calls_a_B2_log.csv```
+    
+    
+    Here you can also choose and replace the name of ```.json``` and the ```c
+
+
+
 
 
 
