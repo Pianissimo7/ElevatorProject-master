@@ -2,15 +2,15 @@
 
 ## Problem Statement
 
-Create an algorithm for an OOP exercise based on the concept of "Smart Elevator". We need to implement an elevator control system using an ***Offline Algorithm***.
+Create an algorithm for an OOP exercice based on the concept of "Smart Elevator". We need to implement an elevator controle system using an ***Offline Algorithm***.
 In this algorithm, we get all the input before running the program what allow us to
-The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changes on the running time.
+The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changements on the running time.
 
 ## Sources
 
-- Explanation of the *Destination Dispatch* algorithm method on the [Elevatorpedia](https://elevation.fandom.com/wiki/Destination_dispatch) website which is an optimization technique used to install multi-lifts that group passengers to the same destinations to the same lifts and thus reduces waiting times and passengers compared to a standard system where all passengers want to get on or off. And actually eliminates unnecessary stops.
+- Explanation of the *Destination Dispach* algorithm method on the [Elevatorpedia](https://elevation.fandom.com/wiki/Destination_dispatch) website which is an optimization technique used to install multi-lifts that group passengers to the same destinations to the same lifts and thus reduces waiting times and passengers compared to a standard system where all passengers want to get on or off. And actually eliminates unnecessary stops.
 
-- A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *machine learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path
+- A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *maching learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path
 
 - A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed as we wish. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given moment, as well as the *Online* algorithm computes a new path for each new call.
 
@@ -22,17 +22,19 @@ There are 4 classes defined in this implementation. Their properties and methods
 This class defines a ```Building``` with three attributes ```min_floor``` and ```max_floor``` of the given building and the number of ```elevators```
 
 ### 2 - Elevator
-This class represents an ```Elevator``` with different characteristics like ```speed```, ```min_floor``` and ```max_floor``` of each elevator and others specifics time ```close_time```, ```open_time```, ```start_time``` and ```stop_time```.
+This class represents an ```Elevator``` with different characterics like ```speed```, ```min_floor``` and ```max_floor``` of each elevator and others specifics time ```close_time```, ```open_time```, ```start_time``` and ```stop_time```.
 
 ### 3 - CallForElevator
-This class describes a ```CallForElevator``` with several properties, as the ```time``` the ```src``` and the ```dest``` of the call and the ```elev``` allocated for the call.
+This class discribes a ```CallForElevator``` with several properties, as the ```time``` the ```src``` and the ```dest``` of the call and the ```elev``` allocated for the call.
 
 ### 4 - Main
 This class contains the main functions to make the algorithm works efficiently. The ```main``` implements the three objects and import two principal modules:
-- Json in Python: ```Json``` is a syntax for storing and exchanging data, first we need to import the json module:```import Json```, then to convert from Json to Python you can use the ```json.load()``` function.
+- Json in Python: ```Json``` is a syntax for storing and exchanging data, first we need to import the json module:```import Json```, then to convert fron Json to Python you can use the ```json.load()``` function.
 - csv in Python: The csv module implements classes to read and write tabular data in CSV format. It allows programmers to say, “write this data in the format preferred by Excel,” or “read data from this file which was generated by Excel”. The ```parse_csv``` function gives the possibility to read csv files using ```csv.reader()``` and with the ``` csv_output_writer``` function we can write the output into them.
 
-### UML Diagram
+## UML Diagram
+
+![image](https://user-images.githubusercontent.com/92322613/142417101-7c6fc71f-90fb-4c00-a88c-c89aa6be8fb1.png 50x50)
 
 
 
