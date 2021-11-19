@@ -2,39 +2,84 @@
 
 ## Problem Statement
 
-Create an algorithm for an OOP exercice based on the concept of "Smart Elevator". We need to implement an elevator controle system using an ***Offline Algorithm***.
-In this algorithm, we get all the input before running the program what allow us to
-The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changements on the running time.
+Create an algorithm for an OOP exercise based on the concept of "Smart Elevator". We need to implement an elevator control system using an ***Offline Algorithm***.
+In this algorithm, we get all the input before running the program what allow us to get the most effecient and faster path.
+The algorithm receives all the inputs in advance before running the program, which makes it possible to plan the most efficient and fast path without any changes on the run time.
 
 ## Sources
 
-- Explanation of the *Destination Dispach* algorithm method on the [Elevatorpedia](https://elevation.fandom.com/wiki/Destination_dispatch) website which is an optimization technique used to install multi-lifts that group passengers to the same destinations to the same lifts and thus reduces waiting times and passengers compared to a standard system where all passengers want to get on or off. And actually eliminates unnecessary stops.
+- Explanation of the *Destination Dispatch* algorithm method on the [Elevatorpedia](https://elevation.fandom.com/wiki/Destination_dispatch) website which is an optimization technique used to install multi-lifts that group passengers to the same destinations to the same lifts and thus reduces waiting times and passengers compared to a standard system where all passengers want to get on or off. And actually eliminates unnecessary stops.
 
-- A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *maching learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path
+- A study on *"Smart Elevator"* on the [ResearchGate](https://www.researchgate.net/publication/331475872_Smart_Building's_Elevator_with_Intelligent_Control_Algorithm_based_on_Bayesian_Networks) website called *Smart Building’s Elevator with Intelligent Control Algorithm based on Bayesian Networks* which tells about the application of smart elevator control systems based on the *machine learning* algorithm which aims to improve the comfort of multi-site buildings. The algorithm maintains information about the size of the passenger group and their waiting time provided by the purchasing and appointment processing system. The information is then used as the decision-making model and calculation of the elevator path.
 
-- A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed as we wish. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given moment, as well as the *Online* algorithm computes a new path for each new call.
+- A simulation project that simulates a smart [Elevator System Netifly](https://elevator-system.netlify.app/) elevator. The simulator consists of 13 floors and 4 elevators, the quantities can be changed arbitrairly. Next to each floor is indicated the amount of available elevators calculated according to the algorithm of the simulator. The system knows how to allocate the available elevator closest to the reading floor at any given time, as well as the *Online* algorithm computes a new path for each new call.
 
 ## Design
 
 There are 4 classes defined in this implementation. Their properties and methods are detailed below.
 
 ### 1 - Building
-This class defines a ```Building``` with three attributes ```min_floor``` and ```max_floor``` of the given building and the number of ```elevators```
+This class defines a ```Building``` with three attributes ```min_floor``` and ```max_floor``` of the given building and the number of ```elevators```.
 
 ### 2 - Elevator
 This class represents an ```Elevator``` with different characterics like ```speed```, ```min_floor``` and ```max_floor``` of each elevator and others specifics time ```close_time```, ```open_time```, ```start_time``` and ```stop_time```.
 
 ### 3 - CallForElevator
-This class discribes a ```CallForElevator``` with several properties, as the ```time``` the ```src``` and the ```dest``` of the call and the ```elev``` allocated for the call.
+This class describes a ```CallForElevator``` with several properties, as the ```time``` the ```src``` and the ```dest``` of the call and the ```elev``` allocated for the call.
 
 ### 4 - Main
 This class contains the main functions to make the algorithm works efficiently. The ```main``` implements the three objects and import two principal modules:
 - Json in Python: ```Json``` is a syntax for storing and exchanging data, first we need to import the json module:```import Json```, then to convert fron Json to Python you can use the ```json.load()``` function.
 - csv in Python: The csv module implements classes to read and write tabular data in CSV format. It allows programmers to say, “write this data in the format preferred by Excel,” or “read data from this file which was generated by Excel”. The ```parse_csv``` function gives the possibility to read csv files using ```csv.reader()``` and with the ``` csv_output_writer``` function we can write the output into them.
+- Explanation about the main function in the *Algorithm* part.
 
 ## UML Diagram
 
-![image](https://user-images.githubusercontent.com/92322613/142417101-7c6fc71f-90fb-4c00-a88c-c89aa6be8fb1.png 50x50)
+<img src="https://user-images.githubusercontent.com/92322613/142417101-7c6fc71f-90fb-4c00-a88c-c89aa6be8fb1.png" width="500">
 
+## How to run
 
+1 - In order to run the simulator, first enter into the ```main.c```.
 
+2 - Then, from there open cmd and the next command:
+
+    py .\main.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
+    
+    
+ You can choose every building by replacing ```B1.json``` with (```B2.json```, ```B3.json```, ```B4.json``` or ```B5.json```).
+ You can select every stage call by replacing ```Call_a.csv``` (```Call_b.csv```, ```Call_c.csv``` or ```Call_d.csv```).
+    
+3 - Then, run the following command for the ```.jar``` file:
+
+    java -jar Ex1_checker_V1.2_obf.jar <First_ID,Second_ID> Ex1_Buildings/B2.json output.csv Calls_a_B2_log.csv.
+    
+    
+ Here you can also choose and replace the number of the building before ```.json``` and the number of the call before ```.csv```.
+ 
+ 4- The output log file is located in ```output.csv```.
+ 
+ ## Logs files
+ 
+ All the logs files are located in ```ElevatorProject-master\logs```:
+ 
+ | Logs | Total waiting time | average waiting time per call | unCompleted calls |
+ | ---- | ------------------ | ----------------------------- | ----------------- |
+ | Calls_a_B1_log.csv | 11292.0 | 112.92 | 0 |
+ | Calls_a_B2_log.csv | 5333.0 | 53.33 | 0 |
+ | Calls_a_B3_log.csv | 3625.0 | 36.25 | 0 |
+ | Calls_a_B4_log.csv | 2533.0 | 25.33 | 0 |
+ | Calls_a_B5_log.csv | 1828.0 | 18.28 | 0 |
+ | Calls_b_B3_log.csv | 576832.4739519979 | 576.8324739519979 | 249 |
+ | Calls_b_B4_log.csv | 225492.44582399953 | 225.49244582399953 | 38 |
+ | Calls_b_B5_log.csv | 56296.0 | 56.296 | 0 |
+ | Calls_c_B3_log.csv | 611805.2692800032 | 611.8052692800031 | 96 |
+ | Calls_c_B4_log.csv | 216585.80609999993 | 216.58580609999993 | 20 |
+ | Calls_c_B5_log.csv | 57164.38060999999 | 57.164380609999995 | 2 |
+ | Calls_d_B3_log.csv | 603492.4245020027 | 603.4924245020027 | 97 |
+ | Calls_d_B4_log.csv | 214546.37365999998 | 214.54637365999997 | 10 |
+ | Calls_d_B5_log.csv | 54321.0 | 54.321 | 0 |
+ 
+ ## Algorithm
+ 
+ The main idea of the algorithm is the ```allocate``` function in ```main.py```. The function get as arguments a building of type Building, call of type CallForElevator and call_max_length of type int. Fist we sorted the elevators with a ```lambda``` function that calculates the time by different parameters ```x.CloseTime + x.OpenTime + x.StartTime + x.StopTime - abs(call.dest - call.src) / x.Speed)```.Then, we got the distance of each call by subtracting the destination call of the source call.
+ In order to balance the algorithm, if one elevator has too many calls allocated to it, some calls should be given to elevators with fewer calls, we calculate an average based on the amount of calls that each elevator has. Moreover, we used a helper function called ```min_calls``` that receives a building and returns an int representing the elevator with the lowest amount of calls assigned to it. At the end, we return the call after updating its elev value to be one of the elevators in building.
