@@ -1,6 +1,6 @@
 class Elevator:
+    # constructor.
     def __init__(self, ID, speed, min_floor, max_floor, close_time, open_time, start_time, stop_time):
-
         self.ID = ID
         self.Speed = speed
         self.MinFloor = min_floor
@@ -11,6 +11,7 @@ class Elevator:
         self.StopTime = stop_time
         self.call_amount = 0
 
+    # toString.
     def __str__(self):
         return ", ".join([
             str(self.ID),

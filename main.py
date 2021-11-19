@@ -6,6 +6,8 @@ from Elevator import Elevator
 from CallForElevator import CallForElevator
 
 
+# receives a path to a json file that contains a building's data.
+# returns a building object containing the json's values.
 def parse_json(json_path):
     with open(json_path) as f:
         data = json.load(f)
@@ -25,6 +27,8 @@ def parse_json(json_path):
     return building_
 
 
+# receives a path to a csv file containing a list of calls.
+# returns an array of CallForElevator objects representing the calls in the csv file specified.
 def parse_csv(csv_path):
     calls_ = []
     with open(csv_path) as csv_file:
@@ -36,6 +40,8 @@ def parse_csv(csv_path):
     return calls_
 
 
+# receives a path to an output csv file and a list of calls.
+# writes to the output the content of the calls.
 def csv_output_writer(pathcsv, calls):
     with open(pathcsv, 'w', newline='') as file:
         csv_writer = csv.writer(file)
@@ -46,6 +52,8 @@ def csv_output_writer(pathcsv, calls):
         file.close()
 
 
+# receives a building of type Building, call of type CallForElevator and call_max_length of type int
+# returns the call after updating it's elev value to be one of the elevators in building
 def allocate(building, call, call_max_length):
     building.elevators = sorted(building.elevators, key=lambda x: x.CloseTime + x.OpenTime + x.StartTime + x.StopTime - abs(call.dest - call.src) / x.Speed)
     margin = call_max_length / len(building.elevators)
@@ -54,6 +62,7 @@ def allocate(building, call, call_max_length):
     if elev_index >= len(building.elevators) - 1:
         elev_index -= 1
     # load balancing algorithm
+    # if one elevator has too many calls allocated to it, some calls should be given to elevators with less calls
     average = sum([x.call_amount for x in building.elevators]) / len(building.elevators)
     min_calls_elevator_index = min_calls(building)
     if building.elevators[elev_index].call_amount * 0.9 > average and elev_index < min_calls_elevator_index:
@@ -64,6 +73,8 @@ def allocate(building, call, call_max_length):
     return call
 
 
+# receives a building of type Building.
+# returns an int representing the elevator with the lowest amount of calls assigned to it.
 def min_calls(building):
     _min = building.elevators[0].call_amount
     index = 0
@@ -74,19 +85,13 @@ def min_calls(building):
     return index
 
 
-# tester run command:
-# java -jar Ex1_checker_V1.2_obf.jar 1111,2222,3333 Ex1_Buildings/B5.json output.csv logs/Calls_d_B5_log.csv
-
+# main function
+# receives 3 arguments: a building path, a calls path and a path to the output file
 if __name__ == '__main__':
     cmd_args = sys.argv[1:]
     building_path = cmd_args[0]
     calls_path = cmd_args[1]
     output_path = cmd_args[2]
-
-
-    # building_path = "Ex1_Buildings/B5.json"
-    # output_path = "output.csv"
-    # calls_path = "Ex1_Calls/Calls_c.csv"
 
     _building = parse_json(building_path)
     _calls = parse_csv(calls_path)
