@@ -1,19 +1,19 @@
 @startuml
 'https://plantuml.com/class-diagram
-interface csv
-interface json
-interface sys
+class csv
+class json
+class sys
 class Elevator
 class Building
 class CallForElevator
 class Main
 
-Elevator <|-- Main
-Building <|-- Main
-CallForElevator <|-- Main
-Main <|.. json
-Main <|.. csv
-Main <|.. sys
+Elevator <.. Main
+Building <.. Main
+CallForElevator <.. Main
+Main <.. json
+Main <..  csv
+Main <.. sys
 
 
 class Elevator {
